@@ -9,7 +9,7 @@ import os
 # Example input (replace with actual user data)
 # Format: Age, Weight, Duration, Heart_Rate, Body_Temp, Gender (0/1)
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:5173"])# Allow requests from frontend
+CORS(app, origins=["https://fitness-app-frontend4.onrender.com"])# Allow requests from frontend
 
 model = LinearRegression()
 model = joblib.load("calorie_predictor_model.pkl")
