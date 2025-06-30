@@ -43,7 +43,7 @@ const Login = ({ setWorkoutPlan }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5055/api/chat", {
+      const response = await fetch("https://fitness-app-backend5.onrender.com/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(finaluserData)
@@ -93,7 +93,7 @@ const handleNext = () => {
   useEffect(() => {
     const fetchdata = async () => {
       try {
-        const bodypartdata = await fetchData('http://localhost:5055/api/bodyparts', {});
+        const bodypartdata = await fetchData('https://fitness-app-backend5.onrender.com/api/bodyparts', {});
         console.log("Fetched bodypartdata:", bodypartdata);
 
         if (Array.isArray(bodypartdata)) {
