@@ -204,15 +204,6 @@ app.post("/api/chat",async(req,res)=>{
 
     const data=await apires.json()
     console.log("OpenAI Response:", data); 
-
-    if (
-      !data ||
-      !data.candidates ||
-      !data.candidates[0]?.content?.parts[0]?.text
-    ) {
-      await User.findByIdAndDelete(newUser._id); // cleanup failed user
-      return res.status(500).json({ error: "Invalid AI response structure" });
-    }
     let textResponse = data.candidates[0].content.parts[0].text.trim();
 
     // Strip markdown formatting
