@@ -3,6 +3,8 @@ from flask_cors import CORS
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import joblib
+import os
+
 
 # Example input (replace with actual user data)
 # Format: Age, Weight, Duration, Heart_Rate, Body_Temp, Gender (0/1)
@@ -39,4 +41,4 @@ def predict():
         return jsonify({"error": str(e)}), 400
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)), debug=True)
