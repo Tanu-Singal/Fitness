@@ -113,8 +113,13 @@ const handleNext = () => {
   return (
     <form onSubmit={handleSubmit}>
 
-      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
-        <Card sx={{ maxWidth: 500, width: "100%", p: 4, boxShadow: 3, textAlign: "center" }}>
+      <Box display="flex" justifyContent="center" mt={2}>
+        <Card sx={{ maxWidth: 500,
+  width: "90%",
+  p: { xs: 2, sm: 4 },
+  boxShadow: 3,
+  textAlign: "center",
+  borderRadius: 3 }}>
           <CardContent>
             <motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
               <Typography variant="h5" fontWeight="bold" color="#FF2625" mb={2}>
