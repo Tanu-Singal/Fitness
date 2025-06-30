@@ -231,7 +231,7 @@ console.log("Parsed workoutPlan:", parsedWorkoutPlan);
   onChange={async (e) => {
     if (e.target.checked && userInfo) {
       try {
-        const response = await fetch("http://localhost:5000/predicted", {
+        const response = await fetch("https://fitness-app-backend3.onrender.com/predicted", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
