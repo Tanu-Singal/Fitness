@@ -22,7 +22,7 @@ const connectdb=async()=>{
    }
    catch(error)
    {
-    console.error("Error connecting");
+    console.error("❌ MongoDB connect failed:", error.message");
    }
 }
 connectdb()
