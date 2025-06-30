@@ -37,7 +37,7 @@ useEffect(() => {
   const id = localStorage.getItem("userId");
   if (!id) return;
 
-  fetch(`http://localhost:5055/getuserinfo/${id}`)
+  fetch(`https://fitness-app-backend5.onrender.com/getuserinfo/${id}`)
     .then(res => res.json())
     .then(data => {
       console.log("✅ User data fetched from MongoDB:", data);
@@ -80,7 +80,7 @@ console.log("Parsed workoutPlan:", parsedWorkoutPlan);
         
       }
       else{
-        fetch(`http://localhost:5055/getworkout/${userId}`)
+        fetch(`https://fitness-app-backend5.onrender.com/getworkout/${userId}`)
         .then(res=>res.json())
         .then(data=>{
           if(data && Array.isArray(data.plan)){
@@ -107,7 +107,7 @@ console.log("Parsed workoutPlan:", parsedWorkoutPlan);
       localStorage.setItem(`workout_${userId}`, JSON.stringify(workoutPlan));
       console.log("Workout saved locally.");
 
-      fetch("http://localhost:5055/saveworkout",{
+      fetch("https://fitness-app-backend5.onrender.com/saveworkout",{
         method:"POST",
         headers:{
           "Content-Type":"application/json"
@@ -255,7 +255,7 @@ console.log("typeof Body_Temp:", typeof workout.Body_temp);
         // Save calorie for that workout index
         setcalories((prev) => ({ ...prev, [index]: data.calories }));
 
-        await fetch("http://localhost:5055/api/calorie",{
+        await fetch("https://fitness-app-backend5.onrender.com/api/calorie",{
           method:"POST",
           headers:{
             "Content-Type":"application/json",
