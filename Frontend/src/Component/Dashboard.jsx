@@ -39,7 +39,11 @@ result.forEach((item) => {
     month: "short",
   });
   }
-
+else if (viewMode === "year") {
+  label = date.toLocaleDateString("en-US", {
+    month: "short", // Jan, Feb, ...
+  });
+}
   if (!grouped[label]) grouped[label] = 0;
   grouped[label] += item.calorie;
 });
