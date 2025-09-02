@@ -281,13 +281,20 @@ app.get("/api/calorie/user/:id", async (req, res) => {
   let start;
 
   if (range === "week") {
-    start = new Date(now.setDate(now.getDate() - now.getDay())); // start of week
-  } else if (range === "month") {
-    start = new Date(now.getFullYear(), now.getMonth(), 1); // start of month
-  } else {
-    start = new Date();
-    start.setHours(0, 0, 0, 0); // today
-  }
+  start = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() - now.getDay()
+  ); // start of week
+} else if (range === "month") {
+  start = new Date(now.getFullYear(), now.getMonth(), 1); // start of month
+} else if (range === "year") {
+  start = new Date(now.getFullYear(), 0, 1); // start of year
+} else {
+  start = new Date();
+  start.setHours(0, 0, 0, 0); // today
+}
+
 
   try {
     const logs = await works.find({
